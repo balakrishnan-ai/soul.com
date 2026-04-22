@@ -1,0 +1,2500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SOUL – Senior Orchestration for Uplifting Lives</title>
+  <meta name="description" content="Because Care Should Never Feel Distant. SOUL provides comprehensive senior care services for parents living alone.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
+  <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+
+  <style>
+    /* ============================
+       CSS Custom Properties
+    ============================ */
+    :root {
+      --primary: #7C5CFC;
+      --primary-dark: #6344E0;
+      --primary-light: #A78BFA;
+      --primary-50: #F5F3FF;
+      --primary-100: #EDE9FE;
+      --primary-200: #DDD6FE;
+      --white: #FFFFFF;
+      --bg: #FAFAFE;
+      --bg-warm: #FDF8F0;
+      --text-primary: #1E1B4B;
+      --text-secondary: #6B7280;
+      --text-light: #9CA3AF;
+      --border: #E5E7EB;
+      --border-light: #F3F4F6;
+      --success: #10B981;
+      --error: #EF4444;
+      --whatsapp: #25D366;
+      --shadow-sm: 0 1px 2px rgba(124, 92, 252, 0.05);
+      --shadow-md: 0 4px 12px rgba(124, 92, 252, 0.08);
+      --shadow-lg: 0 10px 30px rgba(124, 92, 252, 0.12);
+      --shadow-xl: 0 20px 50px rgba(124, 92, 252, 0.15);
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --radius-xl: 24px;
+      --radius-full: 9999px;
+      --font-body: 'Inter', sans-serif;
+      --font-heading: 'Playfair Display', serif;
+      --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      --nav-height: 72px;
+    }
+
+    /* ============================
+       Reset & Base
+    ============================ */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: var(--nav-height);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--text-primary);
+      background-color: var(--bg);
+      overflow-x: hidden;
+    }
+
+    ::selection {
+      background: var(--primary-200);
+      color: var(--text-primary);
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* ============================
+       Utility Classes
+    ============================ */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .section {
+      padding: 100px 0;
+    }
+
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--primary);
+      background: var(--primary-50);
+      padding: 6px 16px;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--primary-100);
+      margin-bottom: 20px;
+    }
+
+    .section-title {
+      font-family: var(--font-heading);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 600;
+      line-height: 1.2;
+      color: var(--text-primary);
+      margin-bottom: 16px;
+    }
+
+    .section-subtitle {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      max-width: 600px;
+      line-height: 1.7;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .section-header .section-subtitle {
+      margin: 0 auto;
+    }
+
+    /* Scroll reveal base state */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s var(--transition), transform 0.7s var(--transition);
+    }
+
+    .reveal.revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+    .reveal-delay-5 { transition-delay: 0.5s; }
+
+    /* ============================
+       Buttons
+    ============================ */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 32px;
+      font-family: var(--font-body);
+      font-size: 15px;
+      font-weight: 600;
+      border-radius: var(--radius-full);
+      border: none;
+      cursor: pointer;
+      transition: all var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: var(--white);
+      box-shadow: 0 4px 15px rgba(124, 92, 252, 0.3);
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      box-shadow: 0 6px 25px rgba(124, 92, 252, 0.4);
+      transform: translateY(-2px);
+    }
+
+    .btn-primary:active {
+      transform: translateY(0);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--primary);
+      border: 2px solid var(--primary-200);
+    }
+
+    .btn-outline:hover {
+      background: var(--primary-50);
+      border-color: var(--primary);
+      transform: translateY(-2px);
+    }
+
+    .btn-white {
+      background: var(--white);
+      color: var(--primary);
+      box-shadow: var(--shadow-md);
+    }
+
+    .btn-white:hover {
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-2px);
+    }
+
+    /* ============================
+       Navbar
+    ============================ */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: var(--nav-height);
+      z-index: 1000;
+      transition: all var(--transition);
+      display: flex;
+      align-items: center;
+    }
+
+    .navbar.scrolled {
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      box-shadow: 0 1px 0 var(--border-light), var(--shadow-sm);
+    }
+
+    .navbar .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .nav-logo-icon {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 18px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      transition: color var(--transition);
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      border-radius: 2px;
+      transition: width var(--transition);
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--primary);
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      padding: 10px 24px;
+      font-size: 14px;
+    }
+
+    /* Mobile Menu Toggle */
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--text-primary);
+      border-radius: 2px;
+      transition: all var(--transition);
+    }
+
+    .nav-toggle.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .nav-toggle.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .nav-toggle.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+    /* Mobile Menu */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: var(--nav-height);
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      z-index: 999;
+      padding: 32px 24px;
+      opacity: 0;
+      transform: translateY(-10px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .mobile-menu.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .mobile-menu-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .mobile-menu-links li a {
+      display: block;
+      padding: 16px 0;
+      font-size: 18px;
+      font-weight: 500;
+      color: var(--text-primary);
+      border-bottom: 1px solid var(--border-light);
+      transition: color var(--transition), padding-left var(--transition);
+    }
+
+    .mobile-menu-links li a:hover {
+      color: var(--primary);
+      padding-left: 8px;
+    }
+
+    .mobile-menu-cta {
+      margin-top: 32px;
+      width: 100%;
+    }
+
+    /* ============================
+       Hero Section
+    ============================ */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, var(--primary-50) 0%, var(--white) 40%, var(--bg-warm) 100%);
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -200px;
+      right: -200px;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(124, 92, 252, 0.08) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -100px;
+      left: -100px;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(167, 139, 250, 0.06) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .hero .container {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      padding-top: var(--nav-height);
+    }
+
+    .hero-content {
+      max-width: 560px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--primary);
+      background: var(--white);
+      padding: 8px 16px;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--primary-100);
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 24px;
+      animation: fadeInDown 0.8s ease forwards;
+    }
+
+    .hero-badge .pulse-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--success);
+      border-radius: 50%;
+      position: relative;
+    }
+
+    .hero-badge .pulse-dot::after {
+      content: '';
+      position: absolute;
+      inset: -3px;
+      border-radius: 50%;
+      border: 2px solid var(--success);
+      animation: ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+    }
+
+    .hero-title {
+      font-family: var(--font-heading);
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      font-weight: 700;
+      line-height: 1.15;
+      color: var(--text-primary);
+      margin-bottom: 12px;
+      animation: fadeInUp 0.8s 0.1s ease both;
+    }
+
+    .hero-title .highlight {
+      color: var(--primary);
+      position: relative;
+    }
+
+    .hero-title .highlight::after {
+      content: '';
+      position: absolute;
+      bottom: 4px;
+      left: 0;
+      right: 0;
+      height: 8px;
+      background: var(--primary-100);
+      border-radius: 4px;
+      z-index: -1;
+    }
+
+    .hero-subtitle {
+      font-size: 1.25rem;
+      color: var(--primary);
+      font-weight: 500;
+      margin-bottom: 20px;
+      animation: fadeInUp 0.8s 0.2s ease both;
+    }
+
+    .hero-description {
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin-bottom: 36px;
+      animation: fadeInUp 0.8s 0.3s ease both;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      animation: fadeInUp 0.8s 0.4s ease both;
+    }
+
+    .hero-trust {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-top: 40px;
+      padding-top: 32px;
+      border-top: 1px solid var(--border-light);
+      animation: fadeInUp 0.8s 0.5s ease both;
+    }
+
+    .hero-avatars {
+      display: flex;
+    }
+
+    .hero-avatars span {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 2px solid var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      margin-left: -8px;
+    }
+
+    .hero-avatars span:first-child { margin-left: 0; background: #EDE9FE; color: var(--primary); }
+    .hero-avatars span:nth-child(2) { background: #DBEAFE; color: #3B82F6; }
+    .hero-avatars span:nth-child(3) { background: #D1FAE5; color: #10B981; }
+    .hero-avatars span:nth-child(4) { background: #FEF3C7; color: #F59E0B; }
+
+    .hero-trust-text {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.4;
+    }
+
+    .hero-trust-text strong {
+      color: var(--text-primary);
+    }
+
+    /* Hero Visual */
+    .hero-visual {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      animation: fadeInRight 1s 0.3s ease both;
+    }
+
+    .hero-image-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 500px;
+    }
+
+    .hero-image {
+      width: 100%;
+      aspect-ratio: 4/5;
+      object-fit: cover;
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-xl);
+    }
+
+    .hero-float-card {
+      position: absolute;
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 16px 20px;
+      box-shadow: var(--shadow-lg);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .hero-float-card.card-1 {
+      top: 20%;
+      left: -40px;
+      animation-delay: 0s;
+    }
+
+    .hero-float-card.card-2 {
+      bottom: 25%;
+      right: -30px;
+      animation-delay: 1.5s;
+    }
+
+    .float-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+
+    .float-icon.purple { background: var(--primary-50); color: var(--primary); }
+    .float-icon.green { background: #D1FAE5; color: #10B981; }
+
+    .float-text {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-primary);
+      line-height: 1.3;
+    }
+
+    .float-text small {
+      font-weight: 400;
+      color: var(--text-light);
+      font-size: 12px;
+      display: block;
+    }
+
+    /* ============================
+       About / Problem Section
+    ============================ */
+    .about {
+      background: var(--white);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .about-image {
+      position: relative;
+    }
+
+    .about-image img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      border-radius: var(--radius-xl);
+    }
+
+    .about-image-accent {
+      position: absolute;
+      bottom: -20px;
+      right: -20px;
+      width: 160px;
+      height: 160px;
+      background: var(--primary-50);
+      border-radius: var(--radius-lg);
+      z-index: -1;
+    }
+
+    .about-content .section-subtitle {
+      margin-bottom: 24px;
+    }
+
+    .about-features {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-top: 28px;
+    }
+
+    .about-feature {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+
+    .about-feature-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: var(--primary-50);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+
+    .about-feature-text h4 {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 2px;
+    }
+
+    .about-feature-text p {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    /* ============================
+       Services Section
+    ============================ */
+    .services {
+      background: var(--primary-50);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .service-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 36px 28px;
+      border: 1px solid var(--border-light);
+      transition: all var(--transition);
+      cursor: default;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary), var(--primary-light));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform var(--transition);
+    }
+
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--primary-100);
+    }
+
+    .service-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .service-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 14px;
+      background: var(--primary-50);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      margin-bottom: 20px;
+      transition: all var(--transition);
+    }
+
+    .service-card:hover .service-icon {
+      background: var(--primary);
+      color: var(--white);
+      transform: scale(1.05);
+    }
+
+    .service-card h3 {
+      font-family: var(--font-heading);
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 10px;
+    }
+
+    .service-card p {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    /* ============================
+       Who We Help Section
+    ============================ */
+    .who-we-help {
+      background: var(--white);
+    }
+
+    .who-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+
+    .who-card {
+      text-align: center;
+      padding: 40px 28px;
+      border-radius: var(--radius-lg);
+      background: var(--bg);
+      border: 1px solid var(--border-light);
+      transition: all var(--transition);
+    }
+
+    .who-card:hover {
+      background: var(--primary-50);
+      border-color: var(--primary-100);
+      transform: translateY(-4px);
+    }
+
+    .who-icon {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: var(--primary-50);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+      margin: 0 auto 24px;
+      transition: all var(--transition);
+    }
+
+    .who-card:hover .who-icon {
+      background: var(--primary);
+      color: var(--white);
+      transform: scale(1.1);
+    }
+
+    .who-card h3 {
+      font-family: var(--font-heading);
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 10px;
+    }
+
+    .who-card p {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    /* ============================
+       Why Choose SOUL
+    ============================ */
+    .why-soul {
+      background: linear-gradient(135deg, var(--text-primary) 0%, #2D2660 100%);
+      color: var(--white);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .why-soul::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(124, 92, 252, 0.15) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .why-soul .section-label {
+      background: rgba(124, 92, 252, 0.2);
+      border-color: rgba(124, 92, 252, 0.3);
+      color: var(--primary-light);
+    }
+
+    .why-soul .section-title {
+      color: var(--white);
+    }
+
+    .why-soul .section-subtitle {
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .why-card {
+      text-align: center;
+      padding: 36px 24px;
+      border-radius: var(--radius-lg);
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      transition: all var(--transition);
+    }
+
+    .why-card:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(124, 92, 252, 0.3);
+      transform: translateY(-4px);
+    }
+
+    .why-icon {
+      width: 60px;
+      height: 60px;
+      border-radius: 16px;
+      background: rgba(124, 92, 252, 0.2);
+      color: var(--primary-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      margin: 0 auto 20px;
+      transition: all var(--transition);
+    }
+
+    .why-card:hover .why-icon {
+      background: var(--primary);
+      color: var(--white);
+      transform: scale(1.1);
+    }
+
+    .why-card h3 {
+      font-family: var(--font-heading);
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+
+    .why-card p {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.5);
+      line-height: 1.6;
+    }
+
+    /* ============================
+       Testimonials
+    ============================ */
+    .testimonials {
+      background: var(--bg);
+      overflow: hidden;
+    }
+
+    .testimonials-slider {
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .testimonial-track {
+      display: flex;
+      transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .testimonial-slide {
+      min-width: 100%;
+      padding: 0 20px;
+    }
+
+    .testimonial-card {
+      background: var(--white);
+      border-radius: var(--radius-xl);
+      padding: 48px 40px;
+      border: 1px solid var(--border-light);
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .testimonial-stars {
+      display: flex;
+      justify-content: center;
+      gap: 4px;
+      margin-bottom: 24px;
+      color: #F59E0B;
+      font-size: 18px;
+    }
+
+    .testimonial-text {
+      font-family: var(--font-heading);
+      font-size: 1.2rem;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--text-primary);
+      line-height: 1.7;
+      margin-bottom: 28px;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+    }
+
+    .testimonial-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .testimonial-author-info h4 {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .testimonial-author-info p {
+      font-size: 13px;
+      color: var(--text-light);
+    }
+
+    .slider-controls {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      margin-top: 32px;
+    }
+
+    .slider-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      background: var(--white);
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 18px;
+      transition: all var(--transition);
+    }
+
+    .slider-btn:hover {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: var(--white);
+    }
+
+    .slider-dots {
+      display: flex;
+      gap: 8px;
+    }
+
+    .slider-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--border);
+      border: none;
+      cursor: pointer;
+      transition: all var(--transition);
+    }
+
+    .slider-dot.active {
+      background: var(--primary);
+      width: 28px;
+      border-radius: 5px;
+    }
+
+    /* ============================
+       Contact Section
+    ============================ */
+    .contact {
+      background: var(--white);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    .contact-info h3 {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 16px;
+    }
+
+    .contact-info > p {
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: 32px;
+    }
+
+    .contact-details {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .contact-item-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: var(--primary-50);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+
+    .contact-item-text a {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text-primary);
+      transition: color var(--transition);
+    }
+
+    .contact-item-text a:hover {
+      color: var(--primary);
+    }
+
+    .contact-item-text p {
+      font-size: 13px;
+      color: var(--text-light);
+    }
+
+    /* Contact Form */
+    .contact-form-wrapper {
+      background: var(--bg);
+      border-radius: var(--radius-xl);
+      padding: 40px;
+      border: 1px solid var(--border-light);
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-primary);
+      margin-bottom: 6px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px 16px;
+      font-family: var(--font-body);
+      font-size: 15px;
+      color: var(--text-primary);
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      transition: all var(--transition);
+      outline: none;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(124, 92, 252, 0.1);
+    }
+
+    .form-group input.error,
+    .form-group textarea.error {
+      border-color: var(--error);
+      box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .form-error {
+      font-size: 12px;
+      color: var(--error);
+      margin-top: 4px;
+      display: none;
+    }
+
+    .form-error.visible {
+      display: block;
+    }
+
+    .form-submit {
+      width: 100%;
+      margin-top: 8px;
+    }
+
+    /* Form success message */
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 32px 20px;
+    }
+
+    .form-success.visible {
+      display: block;
+    }
+
+    .form-success-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: #D1FAE5;
+      color: var(--success);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      margin: 0 auto 16px;
+    }
+
+    .form-success h4 {
+      font-family: var(--font-heading);
+      font-size: 1.2rem;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+    }
+
+    .form-success p {
+      font-size: 14px;
+      color: var(--text-secondary);
+    }
+
+    /* ============================
+       Footer
+    ============================ */
+    .footer {
+      background: var(--text-primary);
+      color: var(--white);
+      padding: 60px 0 0;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 48px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .footer-brand .nav-logo {
+      margin-bottom: 16px;
+    }
+
+    .footer-brand p {
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.5);
+      line-height: 1.7;
+      max-width: 320px;
+    }
+
+    .footer-links h4 {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .footer-links ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .footer-links a {
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.5);
+      transition: color var(--transition);
+    }
+
+    .footer-links a:hover {
+      color: var(--primary-light);
+    }
+
+    .footer-bottom {
+      padding: 24px 0;
+      text-align: center;
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.35);
+      font-style: italic;
+    }
+
+    .footer-bottom strong {
+      color: rgba(255, 255, 255, 0.6);
+      font-style: normal;
+    }
+
+    /* ============================
+       Floating WhatsApp Button
+    ============================ */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: 998;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: var(--whatsapp);
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+      transition: all var(--transition);
+      cursor: pointer;
+      border: none;
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 28px rgba(37, 211, 102, 0.5);
+    }
+
+    .whatsapp-float::after {
+      content: '';
+      position: absolute;
+      inset: -4px;
+      border-radius: 50%;
+      border: 2px solid var(--whatsapp);
+      animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+    }
+
+    /* ============================
+       Toast Notification
+    ============================ */
+    .toast {
+      position: fixed;
+      bottom: 100px;
+      right: 28px;
+      background: var(--text-primary);
+      color: var(--white);
+      padding: 14px 24px;
+      border-radius: var(--radius-md);
+      font-size: 14px;
+      font-weight: 500;
+      box-shadow: var(--shadow-xl);
+      z-index: 9999;
+      transform: translateY(20px);
+      opacity: 0;
+      transition: all 0.3s ease;
+      pointer-events: none;
+    }
+
+    .toast.visible {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    /* ============================
+       Keyframes
+    ============================ */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(24px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-16px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInRight {
+      from {
+        opacity: 0;
+        transform: translateX(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    @keyframes ping {
+      75%, 100% {
+        transform: scale(2);
+        opacity: 0;
+      }
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateX(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    /* ============================
+       Responsive Design
+    ============================ */
+    @media (max-width: 1024px) {
+      .hero .container {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 40px;
+      }
+
+      .hero-content {
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      .hero-actions {
+        justify-content: center;
+      }
+
+      .hero-trust {
+        justify-content: center;
+      }
+
+      .hero-visual {
+        max-width: 400px;
+        margin: 0 auto;
+      }
+
+      .hero-float-card.card-1 { left: -10px; }
+      .hero-float-card.card-2 { right: -10px; }
+
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .why-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .section {
+        padding: 72px 0;
+      }
+
+      .nav-links,
+      .nav-cta-desktop {
+        display: none !important;
+      }
+
+      .nav-toggle {
+        display: flex;
+      }
+
+      .mobile-menu {
+        display: block;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .who-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .why-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-float-card {
+        display: none;
+      }
+
+      .testimonial-card {
+        padding: 32px 24px;
+      }
+
+      .testimonial-text {
+        font-size: 1.05rem;
+      }
+
+      .contact-form-wrapper {
+        padding: 28px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-actions {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .hero-actions .btn {
+        width: 100%;
+      }
+
+      .btn {
+        padding: 12px 24px;
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================
+       Navigation
+  ============================ -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <a href="#hero" class="nav-logo">
+        <span class="nav-logo-icon">
+          <span class="iconify" data-icon="mdi:heart-pulse"></span>
+        </span>
+        SOUL
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#about" class="active">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#who-we-help">Who We Help</a></li>
+        <li><a href="#why-soul">Why SOUL</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
+      </ul>
+
+      <a href="#contact" class="btn btn-primary nav-cta nav-cta-desktop">Get in Touch</a>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <ul class="mobile-menu-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#who-we-help">Who We Help</a></li>
+      <li><a href="#why-soul">Why SOUL</a></li>
+      <li><a href="#testimonials">Testimonials</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#contact" class="btn btn-primary mobile-menu-cta">Get in Touch</a>
+  </div>
+
+  <!-- ============================
+       Hero Section
+  ============================ -->
+  <section class="hero" id="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="pulse-dot"></span>
+          Now serving across India
+        </div>
+
+        <h1 class="hero-title">
+          <span class="highlight">SOUL</span> – Senior Orchestration for Uplifting Lives
+        </h1>
+
+        <p class="hero-subtitle">Because Care Should Never Feel Distant</p>
+
+        <p class="hero-description">
+          Every day, millions of parents live alone while their children build lives abroad. The worry never stops — but the care can start today. SOUL bridges that distance with compassionate, reliable support for the ones who raised you.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#contact" class="btn btn-primary">
+            <span class="iconify" data-icon="mdi:hand-heart" style="font-size:18px"></span>
+            Get in Touch
+          </a>
+          <a href="#services" class="btn btn-outline">
+            Explore Services
+            <span class="iconify" data-icon="mdi:arrow-right" style="font-size:16px"></span>
+          </a>
+        </div>
+
+        <div class="hero-trust">
+          <div class="hero-avatars">
+            <span class="iconify" data-icon="mdi:account"></span>
+            <span class="iconify" data-icon="mdi:account"></span>
+            <span class="iconify" data-icon="mdi:account"></span>
+            <span class="iconify" data-icon="mdi:account"></span>
+          </div>
+          <div class="hero-trust-text">
+            <strong>200+ families trust SOUL</strong><br>
+            to care for their loved ones
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="hero-image-wrapper">
+          <img
+            src="https://picsum.photos/seed/soul-elderly-care/600/750.jpg"
+            alt="Elderly person smiling with care"
+            class="hero-image"
+            loading="eager"
+          >
+          <div class="hero-float-card card-1">
+            <div class="float-icon purple">
+              <span class="iconify" data-icon="mdi:shield-check"></span>
+            </div>
+            <div class="float-text">
+              24/7 Support
+              <small>Always there for them</small>
+            </div>
+          </div>
+          <div class="hero-float-card card-2">
+            <div class="float-icon green">
+              <span class="iconify" data-icon="mdi:heart"></span>
+            </div>
+            <div class="float-text">
+              Daily Check-ins
+              <small>Wellness monitoring</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================
+       About / Problem Section
+  ============================ -->
+  <section class="section about" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-image reveal">
+          <img
+            src="https://picsum.photos/seed/soul-about-family/700/525.jpg"
+            alt="Family care concept"
+            loading="lazy"
+          >
+          <div class="about-image-accent"></div>
+        </div>
+
+        <div class="about-content">
+          <div class="section-label reveal">
+            <span class="iconify" data-icon="mdi:information-outline" style="font-size:14px"></span>
+            The Reality
+          </div>
+
+          <h2 class="section-title reveal reveal-delay-1">
+            Your Parents Raised You.<br>Who's There for Them Now?
+          </h2>
+
+          <p class="section-subtitle reveal reveal-delay-2">
+            You moved abroad for a better future — that took courage. But back home, your parents navigate doctor visits, loneliness, and daily challenges alone. The guilt is real. The distance feels unbearable. But it doesn't have to be this way.
+          </p>
+
+          <div class="about-features">
+            <div class="about-feature reveal reveal-delay-2">
+              <div class="about-feature-icon">
+                <span class="iconify" data-icon="mdi:earth"></span>
+              </div>
+              <div class="about-feature-text">
+                <h4>Children Abroad, Parents Alone</h4>
+                <p>Over 30 million Indians live overseas, leaving aging parents without local support systems.</p>
+              </div>
+            </div>
+
+            <div class="about-feature reveal reveal-delay-3">
+              <div class="about-feature-icon">
+                <span class="iconify" data-icon="mdi:phone-in-talk"></span>
+              </div>
+              <div class="about-feature-text">
+                <h4>Phone Calls Aren't Enough</h4>
+                <p>You can call every day, but you can't be there for emergencies, appointments, or the silent struggles of loneliness.</p>
+              </div>
+            </div>
+
+            <div class="about-feature reveal reveal-delay-4">
+              <div class="about-feature-icon">
+                <span class="iconify" data-icon="mdi:shield-heart"></span>
+              </div>
+              <div class="about-feature-text">
+                <h4>That's Where SOUL Steps In</h4>
+                <p>We become the local family your parents need — with compassion, reliability, and the care you'd give if you were there.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================
+       Services Section
+  ============================ -->
+  <section class="section services" id="services">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label reveal">
+          <span class="iconify" data-icon="mdi:hand-extended" style="font-size:14px"></span>
+          Our Services
+        </div>
+        <h2 class="section-title reveal reveal-delay-1">Comprehensive Care,<br>Delivered with Heart</h2>
+        <p class="section-subtitle reveal reveal-delay-2">
+          From daily check-ins to emergency coordination, every service is designed to give your parents the support they deserve — and you the peace of mind you need.
+        </p>
+      </div>
+
+      <div class="services-grid">
+        <!-- Service 1 -->
+        <div class="service-card reveal">
+          <div class="service-icon">
+            <span class="iconify" data-icon="mdi:clipboard-pulse"></span>
+          </div>
+          <h3>Daily Wellness Check-ins</h3>
+          <p>Regular visits or calls to monitor health, mood, and overall well-being. We keep a log so you stay informed, always.</p>
+        </div>
+
+        <!-- Service 2 -->
+        <div class="service-card reveal reveal-delay-1">
+          <div class="service-icon">
+            <span class="iconify" data-icon="mdi:ambulance"></span>
+          </div>
+          <h3>Emergency Assistance</h3>
+          <p>Immediate coordination during medical or personal emergencies. We act fast so your parents are never alone in a crisis.</p>
+        </div>
+
+        <!-- Service 3 -->
+        <div class="service-card reveal reveal-delay-2">
+          <div class="service-icon">
+            <span class="iconify" data-icon="mdi:stethoscope"></span>
+          </div>
+          <h3>Medical Appointment Support</h3>
+          <p>We accompany your parents to doctor visits, manage prescriptions, and ensure follow-ups are never missed.</p>
+        </div>
+
+        <!-- Service 4 -->
+        <div class="service-card reveal reveal-delay-3">
+          <div class="service-icon">
+            <span class="iconify" data-icon="mdi:emoticon-happy-outline"></span>
+          </div>
+          <h3>Companionship & Emotional Care</h3>
+          <p>Loneliness is the silent epidemic. Our caregivers spend quality time, listen, and bring warmth to everyday moments.</p>
+        </div>
+
+        <!-- Service 5 -->
+        <div class="service-card reveal reveal-delay-4">
+          <div class="service-icon">
+            <span class="iconify" data-icon="mdi:broom"></span>
+          </div>
+          <h3>Household Help Coordination</h3>
+          <p>From plumbing to cleaning to groceries — we manage trusted local helpers so your parents' home stays safe and comfortable.</p>
+        </div>
+
+        <!-- Service 6 -->
+        <div class="service-card reveal reveal-delay-5">
+          <div class="service-icon">
+            <span class="iconify" data-icon="mdi:cellphone-link"></span>
+          </div>
+          <h3>Technology Assistance</h3>
+          <p>We help seniors navigate phones, video calls, apps, and digital payments — keeping them connected to you and the world.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================
+       Who We Help Section
+  ============================ -->
+  <section class="section who-we-help" id="who-we-help">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label reveal">
+          <span class="iconify" data-icon="mdi:account-group" style="font-size:14px"></span>
+          Who We Help
+        </div>
+        <h2 class="section-title reveal reveal-delay-1">Built for Families<br>Like Yours</h2>
+        <p class="section-subtitle reveal reveal-delay-2">
+          SOUL is designed for the unique challenges faced by seniors and the families who love them from afar.
+        </p>
+      </div>
+
+      <div class="who-grid">
+        <div class="who-card reveal">
+          <div class="who-icon">
+            <span class="iconify" data-icon="mdi:home-heart"></span>
+          </div>
+          <h3>Senior Citizens Living Independently</h3>
+          <p>For those who value their independence but need a reliable safety net and occasional helping hand.</p>
+        </div>
+
+        <div class="who-card reveal reveal-delay-1">
+          <div class="who-icon">
+            <span class="iconify" data-icon="mdi:airplane-takeoff"></span>
+          </div>
+          <h3>Parents with Children Abroad</h3>
+          <p>For families separated by distance — we bridge the gap so your parents feel cared for and you feel at peace.</p>
+        </div>
+
+        <div class="who-card reveal reveal-delay-2">
+          <div class="who-icon">
+            <span class="iconify" data-icon="mdi:handshake-heart"></span>
+          </div>
+          <h3>Elderly Needing Companionship</h3>
+          <p>For seniors experiencing isolation — we provide warm, genuine human connection that brightens their days.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================
+       Why Choose SOUL
+  ============================ -->
+  <section class="section why-soul" id="why-soul">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label reveal">
+          <span class="iconify" data-icon="mdi:star-four-points" style="font-size:14px"></span>
+          Why SOUL
+        </div>
+        <h2 class="section-title reveal reveal-delay-1">What Makes Us Different</h2>
+        <p class="section-subtitle reveal reveal-delay-2">
+          We're not just a service — we're an extension of your family. Here's why families choose SOUL.
+        </p>
+      </div>
+
+      <div class="why-grid">
+        <div class="why-card reveal">
+          <div class="why-icon">
+            <span class="iconify" data-icon="mdi:shield-check"></span>
+          </div>
+          <h3>Trusted Caregivers</h3>
+          <p>Rigorously vetted, trained, and compassionate professionals who treat your parents like their own.</p>
+        </div>
+
+        <div class="why-card reveal reveal-delay-1">
+          <div class="why-icon">
+            <span class="iconify" data-icon="mdi:clipboard-text-clock"></span>
+          </div>
+          <h3>Personalized Care Plans</h3>
+          <p>Every family is unique. We design care plans around your parents' specific needs, routine, and preferences.</p>
+        </div>
+
+        <div class="why-card reveal reveal-delay-2">
+          <div class="why-icon">
+            <span class="iconify" data-icon="mdi:clock-check"></span>
+          </div>
+          <h3>24/7 Support</h3>
+          <p>Emergencies don't follow schedules. Our team is available round the clock, every single day of the year.</p>
+        </div>
+
+        <div class="why-card reveal reveal-delay-3">
+          <div class="why-icon">
+            <span class="iconify" data-icon="mdi:meditation"></span>
+          </div>
+          <h3>Peace of Mind</h3>
+          <p>Regular updates, transparent communication, and a dedicated coordinator so you never have to wonder or worry.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================
+       Testimonials Section
+  ============================ -->
+  <section class="section testimonials" id="testimonials">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label reveal">
+          <span class="iconify" data-icon="mdi:format-quote-close" style="font-size:14px"></span>
+          Testimonials
+        </div>
+        <h2 class="section-title reveal reveal-delay-1">What Families Say<br>About SOUL</h2>
+        <p class="section-subtitle reveal reveal-delay-2">
+          Real stories from real families who found comfort in our care.
+        </p>
+      </div>
+
+      <div class="testimonials-slider reveal reveal-delay-3">
+        <div class="testimonial-track" id="testimonialTrack">
+          <!-- Slide 1 -->
+          <div class="testimonial-slide">
+            <div class="testimonial-card">
+              <div class="testimonial-stars">
+                <span class="iconify" data-icon="mdi:star"></span>
+                <span class="iconify" data-icon="mdi:star"></span>
+                <span class="iconify" data-icon="mdi:star"></span>
+                <span class="iconify" data-icon="mdi:star"></span>
+                <span class="iconify" data-icon="mdi:star"></span>
+              </div>
+              <p class="testimonial-text">
+                "I live in California and my mother is in Bangalore. Every night I used to worry — is she okay? Did she eat? What if something happens? Since SOUL stepped in, I sleep peacefully for the first time in years."
+              </p>
+              <div class="testimonial-author">
+                <img src="https://picsum.photos/seed/testimonial-priya/96/96.jpg" alt="Priya Sharma" class="testimonial-avatar">
+                <div class="testimonial-author-info">
+                  <h4>Priya Sharma</h4>
+                  <p>Daughter, based in San Francisco</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="testimonial-slide">
+            <div class="testimonial-card">
+              <div class="testimonial-stars">
+                <span class="iconify" data-icon="mdi:star"></span>
+                <span class="iconify" data-icon="mdi:star"></span>
+                <span class="iconify" data-icon="mdi:star"></span>
+                <span class="iconify" data-icon="mdi:star"></span>
+                <span class="iconify" data-icon="mdi:star"></span>
+              </div>
+              <p class="testimonial-text">
+                "My father was reluctant to accept help — he's a proud man. But the SOUL caregiver was so warm and respectful that within a week, he started looking forward to their visits. That says everything."
+              </p>
+              <div class="testimonial-author">
+                <img src="https://picsum.photos/seed/testimonial-rajesh/96/96.jpg" alt="Rajesh Menon" class="testimonial-avatar">
+                <div class="testimonial-author-info">
+                  <h4>Rajesh Menon</h4>
+                  <p>Son, based in Dubai</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 3 -->
+          <div class="testimonial-slide">
+            <div class="testimonial-card">
+              <div class="testimonial-stars">
+                <span class="iconify" data-icon="mdi:star"></span>
+                <span class="iconify" data-icon="mdi:star"></span>
+                <span class="iconify" data-icon="mdi:star"></span>
+                <span class="iconify" data-icon="mdi:star"></span>
+                <span class="iconify" data-icon="mdi:star"></span>
+              </div>
+              <p class="testimonial-text">
+                "When my mother had a medical emergency at 2 AM, SOUL coordinated everything — ambulance, hospital, even called me in Germany. They were there before I could even process what was happening. I'm forever grateful."
+              </p>
+              <div class="testimonial-author">
+                <img src="https://picsum.photos/seed/testimonial-anita/96/96.jpg" alt="Anita Desai" class="testimonial-avatar">
+                <div class="testimonial-author-info">
+                  <h4>Anita Desai</h4>
+                  <p>Daughter, based in Munich</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="slider-controls">
+          <button class="slider-btn" id="prevSlide" aria-label="Previous testimonial">
+            <span class="iconify" data-icon="mdi:chevron-left"></span>
+          </button>
+          <div class="slider-dots" id="sliderDots">
+            <button class="slider-dot active" data-slide="0" aria-label="Go to slide 1"></button>
+            <button class="slider-dot" data-slide="1" aria-label="Go to slide 2"></button>
+            <button class="slider-dot" data-slide="2" aria-label="Go to slide 3"></button>
+          </div>
+          <button class="slider-btn" id="nextSlide" aria-label="Next testimonial">
+            <span class="iconify" data-icon="mdi:chevron-right"></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================
+       Contact Section
+  ============================ -->
+  <section class="section contact" id="contact">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label reveal">
+          <span class="iconify" data-icon="mdi:message-heart" style="font-size:14px"></span>
+          Get in Touch
+        </div>
+        <h2 class="section-title reveal reveal-delay-1">Let's Start Caring<br>Together</h2>
+        <p class="section-subtitle reveal reveal-delay-2">
+          Reach out for a free consultation. We'll understand your needs and create a personalized care plan for your family.
+        </p>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-info reveal">
+          <h3>We'd Love to Hear From You</h3>
+          <p>
+            Whether you're ready to start or just exploring options, we're here to answer every question. No pressure, no commitments — just honest conversation about how we can help.
+          </p>
+
+          <div class="contact-details">
+            <div class="contact-item">
+              <div class="contact-item-icon">
+                <span class="iconify" data-icon="mdi:phone"></span>
+              </div>
+              <div class="contact-item-text">
+                <a href="tel:+918190891000">+91 8190891000</a>
+                <p>Call or WhatsApp anytime</p>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-item-icon">
+                <span class="iconify" data-icon="mdi:email-outline"></span>
+              </div>
+              <div class="contact-item-text">
+                <a href="mailto:care@soulservices.in">care@soulservices.in</a>
+                <p>We reply within 24 hours</p>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-item-icon">
+                <span class="iconify" data-icon="mdi:map-marker-outline"></span>
+              </div>
+              <div class="contact-item-text">
+                <a href="#">India — Serving Pan-India</a>
+                <p>Available in major cities & towns</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form-wrapper reveal reveal-delay-2">
+          <form id="contactForm" novalidate>
+            <div class="form-group">
+              <label for="formName">Your Name *</label>
+              <input type="text" id="formName" placeholder="Enter your full name" required>
+              <div class="form-error" id="nameError">Please enter your name</div>
+            </div>
+
+            <div class="form-group">
+              <label for="formPhone">Phone Number *</label>
+              <input type="tel" id="formPhone" placeholder="Enter your phone number" required>
+              <div class="form-error" id="phoneError">Please enter a valid phone number</div>
+            </div>
+
+            <div class="form-group">
+              <label for="formMessage">Your Message</label>
+              <textarea id="formMessage" placeholder="Tell us about your needs, your parents' situation, or any questions you have..."></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary form-submit">
+              <span class="iconify" data-icon="mdi:send" style="font-size:16px"></span>
+              Send Message
+            </button>
+          </form>
+
+          <div class="form-success" id="formSuccess">
+            <div class="form-success-icon">
+              <span class="iconify" data-icon="mdi:check-bold"></span>
+            </div>
+            <h4>Thank You for Reaching Out!</h4>
+            <p>We've received your message and will get back to you within 24 hours. Your parents deserve the best — and we're here to help.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================
+       Footer
+  ============================ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#hero" class="nav-logo">
+            <span class="nav-logo-icon">
+              <span class="iconify" data-icon="mdi:heart-pulse"></span>
+            </span>
+            SOUL
+          </a>
+          <p>SOUL — Senior Orchestration for Uplifting Lives. We bridge the distance between you and your parents with compassionate, reliable care.</p>
+        </div>
+
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#who-we-help">Who We Help</a></li>
+            <li><a href="#why-soul">Why SOUL</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="tel:+918190891000">+91 8190891000</a></li>
+            <li><a href="mailto:care@soulservices.in">care@soulservices.in</a></li>
+            <li><a href="#">Pan-India Service</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <strong>SOUL</strong> — Bringing Care Closer, Even When You're Far Away
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================
+       Floating WhatsApp Button
+  ============================ -->
+  <a
+    href="https://wa.me/918190891000?text=Hi%20SOUL%2C%20I%27d%20like%20to%20know%20more%20about%20your%20services."
+    class="whatsapp-float"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Chat on WhatsApp"
+  >
+    <span class="iconify" data-icon="mdi:whatsapp"></span>
+  </a>
+
+  <!-- ============================
+       Toast Notification
+  ============================ -->
+  <div class="toast" id="toast"></div>
+
+  <!-- ============================
+       JavaScript
+  ============================ -->
+  <script>
+    /**
+     * SOUL Website - Main JavaScript
+     * Handles: Navigation, Scroll Effects, Testimonials, Form Validation
+     */
+
+    (function () {
+      'use strict';
+
+      // ============================
+      // Utility: Show Toast
+      // ============================
+      function showToast(message, duration = 3000) {
+        const toast = document.getElementById('toast');
+        toast.textContent = message;
+        toast.classList.add('visible');
+        setTimeout(() => toast.classList.remove('visible'), duration);
+      }
+
+      // ============================
+      // 1. Sticky Navbar with Scroll Detection
+      // ============================
+      const navbar = document.getElementById('navbar');
+      let lastScroll = 0;
+
+      function handleNavbarScroll() {
+        const currentScroll = window.scrollY;
+        if (currentScroll > 50) {
+          navbar.classList.add('scrolled');
+        } else {
+          navbar.classList.remove('scrolled');
+        }
+        lastScroll = currentScroll;
+      }
+
+      window.addEventListener('scroll', handleNavbarScroll, { passive: true });
+      handleNavbarScroll(); // Run on load
+
+      // ============================
+      // 2. Mobile Menu Toggle
+      // ============================
+      const navToggle = document.getElementById('navToggle');
+      const mobileMenu = document.getElementById('mobileMenu');
+      let isMenuOpen = false;
+
+      navToggle.addEventListener('click', () => {
+        isMenuOpen = !isMenuOpen;
+        navToggle.classList.toggle('active', isMenuOpen);
+        mobileMenu.classList.toggle('active', isMenuOpen);
+        document.body.style.overflow = isMenuOpen ? 'hidden' : '';
+      });
+
+      // Close mobile menu when clicking a link
+      mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          isMenuOpen = false;
+          navToggle.classList.remove('active');
+          mobileMenu.classList.remove('active');
+          document.body.style.overflow = '';
+        });
+      });
+
+      // ============================
+      // 3. Active Navigation Link on Scroll
+      // ============================
+      const sections = document.querySelectorAll('section[id]');
+      const navLinks = document.querySelectorAll('.nav-links a');
+
+      function updateActiveNav() {
+        const scrollPos = window.scrollY + 150;
+
+        sections.forEach(section => {
+          const top = section.offsetTop;
+          const height = section.offsetHeight;
+          const id = section.getAttribute('id');
+
+          if (scrollPos >= top && scrollPos < top + height) {
+            navLinks.forEach(link => {
+              link.classList.remove('active');
+              if (link.getAttribute('href') === `#${id}`) {
+                link.classList.add('active');
+              }
+            });
+          }
+        });
+      }
+
+      window.addEventListener('scroll', updateActiveNav, { passive: true });
+
+      // ============================
+      // 4. Scroll Reveal Animation (IntersectionObserver)
+      // ============================
+      const revealElements = document.querySelectorAll('.reveal');
+
+      const revealObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('revealed');
+              revealObserver.unobserve(entry.target); // Animate only once
+            }
+          });
+        },
+        {
+          threshold: 0.1,
+          rootMargin: '0px 0px -50px 0px'
+        }
+      );
+
+      revealElements.forEach(el => revealObserver.observe(el));
+
+      // ============================
+      // 5. Testimonials Slider
+      // ============================
+      const track = document.getElementById('testimonialTrack');
+      const dots = document.querySelectorAll('.slider-dot');
+      const prevBtn = document.getElementById('prevSlide');
+      const nextBtn = document.getElementById('nextSlide');
+      let currentSlide = 0;
+      const totalSlides = 3;
+      let autoSlideInterval;
+
+      function goToSlide(index) {
+        // Wrap around
+        if (index < 0) index = totalSlides - 1;
+        if (index >= totalSlides) index = 0;
+        currentSlide = index;
+
+        track.style.transform = `translateX(-${currentSlide * 100}%)`;
+
+        dots.forEach((dot, i) => {
+          dot.classList.toggle('active', i === currentSlide);
+        });
+      }
+
+      prevBtn.addEventListener('click', () => {
+        goToSlide(currentSlide - 1);
+        resetAutoSlide();
+      });
+
+      nextBtn.addEventListener('click', () => {
+        goToSlide(currentSlide + 1);
+        resetAutoSlide();
+      });
+
+      dots.forEach(dot => {
+        dot.addEventListener('click', () => {
+          goToSlide(parseInt(dot.dataset.slide));
+          resetAutoSlide();
+        });
+      });
+
+      // Auto-slide every 5 seconds
+      function startAutoSlide() {
+        autoSlideInterval = setInterval(() => {
+          goToSlide(currentSlide + 1);
+        }, 5000);
+      }
+
+      function resetAutoSlide() {
+        clearInterval(autoSlideInterval);
+        startAutoSlide();
+      }
+
+      startAutoSlide();
+
+      // Pause auto-slide on hover
+      const sliderContainer = document.querySelector('.testimonials-slider');
+      sliderContainer.addEventListener('mouseenter', () => clearInterval(autoSlideInterval));
+      sliderContainer.addEventListener('mouseleave', startAutoSlide);
+
+      // Touch/swipe support for mobile
+      let touchStartX = 0;
+      let touchEndX = 0;
+
+      sliderContainer.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+      }, { passive: true });
+
+      sliderContainer.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        const diff = touchStartX - touchEndX;
+        if (Math.abs(diff) > 50) {
+          if (diff > 0) {
+            goToSlide(currentSlide + 1);
+          } else {
+            goToSlide(currentSlide - 1);
+          }
+          resetAutoSlide();
+        }
+      }, { passive: true });
+
+      // ============================
+      // 6. Contact Form Validation
+      // ============================
+      const form = document.getElementById('contactForm');
+      const formSuccess = document.getElementById('formSuccess');
+      const nameInput = document.getElementById('formName');
+      const phoneInput = document.getElementById('formPhone');
+      const nameError = document.getElementById('nameError');
+      const phoneError = document.getElementById('phoneError');
+
+      function validateName() {
+        const value = nameInput.value.trim();
+        if (!value || value.length < 2) {
+          nameInput.classList.add('error');
+          nameError.classList.add('visible');
+          return false;
+        }
+        nameInput.classList.remove('error');
+        nameError.classList.remove('visible');
+        return true;
+      }
+
+      function validatePhone() {
+        const value = phoneInput.value.trim();
+        // Accept digits, spaces, dashes, + prefix; min 10 digits
+        const digits = value.replace(/\D/g, '');
+        if (!digits || digits.length < 10 || digits.length > 15) {
+          phoneInput.classList.add('error');
+          phoneError.classList.add('visible');
+          return false;
+        }
+        phoneInput.classList.remove('error');
+        phoneError.classList.remove('visible');
+        return true;
+      }
+
+      // Real-time validation on blur
+      nameInput.addEventListener('blur', validateName);
+      phoneInput.addEventListener('blur', validatePhone);
+
+      // Clear error on input
+      nameInput.addEventListener('input', () => {
+        if (nameInput.classList.contains('error')) validateName();
+      });
+
+      phoneInput.addEventListener('input', () => {
+        if (phoneInput.classList.contains('error')) validatePhone();
+      });
+
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const isNameValid = validateName();
+        const isPhoneValid = validatePhone();
+
+        if (isNameValid && isPhoneValid) {
+          // Simulate form submission
+          form.style.display = 'none';
+          formSuccess.classList.add('visible');
+          showToast('✓ Message sent successfully!');
+        } else {
+          // Focus first invalid field
+          if (!isNameValid) nameInput.focus();
+          else if (!isPhoneValid) phoneInput.focus();
+        }
+      });
+
+      // ============================
+      // 7. Smooth scroll for all anchor links
+      // ============================
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          const targetId = this.getAttribute('href');
+          if (targetId === '#') return;
+
+          const targetEl = document.querySelector(targetId);
+          if (targetEl) {
+            e.preventDefault();
+            targetEl.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        });
+      });
+
+      // ============================
+      // 8. Keyboard accessibility for slider
+      // ============================
+      document.addEventListener('keydown', (e) => {
+        // Only if testimonials section is somewhat in view
+        const testimonialSection = document.getElementById('testimonials');
+        const rect = testimonialSection.getBoundingClientRect();
+        const inView = rect.top < window.innerHeight && rect.bottom > 0;
+
+        if (inView) {
+          if (e.key === 'ArrowLeft') {
+            goToSlide(currentSlide - 1);
+            resetAutoSlide();
+          } else if (e.key === 'ArrowRight') {
+            goToSlide(currentSlide + 1);
+            resetAutoSlide();
+          }
+        }
+      });
+
+      // ============================
+      // 9. Performance: Throttle scroll listeners
+      // ============================
+      // Already using { passive: true } on scroll listeners for performance.
+      // IntersectionObserver is inherently performant.
+
+    })();
+  </script>
+</body>
+</html>
